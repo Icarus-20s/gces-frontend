@@ -1,53 +1,69 @@
-/* Center the form on the page */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
+/* General styles */
+.form-controller {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-controller form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-controller label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-controller input,
+.form-controller select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-controller button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-controller button:hover {
+  background-color: #0056b3;
+}
+
+.error-message,
+.success-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: green;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .form-controller {
+    max-width: 100%;
+    padding: 15px;
   }
-  
-  /* Style the form container */
-  form {
-    background: #f7f7f7;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+
+  .form-controller input,
+  .form-controller select {
+    font-size: 14px;
   }
-  
-  /* Style the form labels */
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+
+  .form-controller button {
+    font-size: 14px;
   }
-  
-  /* Style the form inputs */
-  input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Style the submit button */
-  button.submit {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  /* Change the button color on hover */
-  button.submit:hover {
-    background-color: #218838;
-  }
-  
+}
