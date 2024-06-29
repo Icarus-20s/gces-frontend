@@ -26,21 +26,11 @@ const Register = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/api/register/', formData);
+      const response = await axios.post('http://localhost:8000/register/', formData);
 
       console.log('User registered successfully:', response.data);
 
-      // Optionally, reset the form data state after successful submission
-      setFormData({
-        first_name: "",
-        last_name: "",
-        email: "",
-        username: "",
-        password: "",
-        confirm_password: "",
-        branch: "",
-        role: "student",
-      });
+      
     } catch (error) {
       console.error('Error registering user:', error);
       // Handle error as needed
