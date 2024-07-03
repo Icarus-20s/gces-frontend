@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../Css/Register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate= useNavigate()
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -10,8 +12,8 @@ const Register = () => {
     username: "",
     password: "",
     confirm_password: "",
-    branch: "", // Assuming branch is selected in your form
-    role: "student", // Default role, adjust as needed
+    branch: "", 
+    role: "student",
   });
 
   const onChangeHandler = (event) => {
@@ -28,12 +30,13 @@ const Register = () => {
     try {
       const response = await axios.post('http://localhost:8000/register/', formData);
 
-      console.log('User registered successfully:', response.data);
+      if (response.status===201){
+        navigate('/login')
+      }
 
       
     } catch (error) {
       console.error('Error registering user:', error);
-      // Handle error as needed
     }
   };
 
