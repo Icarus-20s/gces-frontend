@@ -1,45 +1,88 @@
-/* Center the login form */
+/* Login.css */
 .login-container {
     max-width: 400px;
     margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-form {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .login-container:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: linear-gradient(135deg, #56a3f6, #247e7e);
+    border-radius: 12px;
+    z-index: -1;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .login-container:hover {
+    transform: translateY(-5px); /* Lifts container on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .login-container:hover:before {
+    transform: scale(1.1); /* Slightly scales gradient on hover */
+  }
+  
+  .login-form {
     display: flex;
     flex-direction: column;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
+    gap: 20px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .form-group input {
+    padding: 14px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.login-button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 6px;
     font-size: 16px;
-}
-
-.login-button:hover {
-    background-color: #45a049;
-}
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+    outline: none;
+  }
+  
+  .login-button {
+    padding: 16px 30px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .login-container {
+      padding: 20px;
+    }
+  }
+  

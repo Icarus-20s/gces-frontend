@@ -5,7 +5,7 @@ const Logout = () => {
     const navigate = useNavigate()
   return (
 <button className="log-out" onClick={()=>{
-navigate('/')
+navigate('/Login')
 }}>logout</button>
 )
 }

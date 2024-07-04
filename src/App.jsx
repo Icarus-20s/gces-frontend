@@ -18,16 +18,17 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
+        <Route path="register" element={<Register />} />
+        <Route path="*" element={<NoMatchRoute />} />
+        <Route path="login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="notice" element={<Notice />} />
         <Route path="performance" element={<Performance />} />
         <Route path="Academics" element={<Academics />} />
         <Route path="student" element={<Student />} />
         <Route path="staff" element={<Staff />} />
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
-        <Route path="*" element={<NoMatchRoute />} />
+       
       </Routes>
     </div>
   );
