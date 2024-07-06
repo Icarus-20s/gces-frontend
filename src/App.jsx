@@ -1,36 +1,38 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import Notice from "./pages/Notice.jsx";
-import Performance from "./pages/Performance.jsx";
-import Student from "./pages/Student.jsx";
-import Academics from "./pages/Academics.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import Logout from "./pages/Logout.jsx";
-import Staff from "./pages/Staff.jsx";
-import NoMatchRoute from "./components/NoMatchRoute.jsx";
-
+import Home from "./pages/Home";
+import Notice from "./pages/Notice";
+import Performance from "./pages/Performance";
+import Student from "./pages/Student";
+import Academics from "./pages/Academics";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Logout from "./pages/Logout";
+import Staff from "./pages/Staff";
+import NoMatchRoute from "./components/NoMatchRoute";
+import AuthContextProvider from "./context/AuthContextProvider";
+import ProtectedRoutes from "./context/ProtectedRoutes";
 
 const App = () => {
   return (
-    <div>
+    <AuthContextProvider>
       <Navbar />
       <Routes>
-        <Route path="register" element={<Register />} />
-        <Route path="*" element={<NoMatchRoute />} />
-        <Route path="login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="notice" element={<Notice />} />
-        <Route path="performance" element={<Performance />} />
-        <Route path="Academics" element={<Academics />} />
-        <Route path="student" element={<Student />} />
-        <Route path="staff" element={<Staff />} />
-        <Route path="logout" element={<Logout />} />
-       
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/notice" element={<Notice />} />
+          <Route path="/academics" element={<Academics />} />
+          <Route path="/performance" element={<Performance />} />
+          <Route path="/student" element={<Student />} />
+          <Route path="/staff" element={<Staff />} />
+        </Route>
+        <Route path="*" element={<NoMatchRoute />} />
       </Routes>
-    </div>
+    </AuthContextProvider>
   );
 };
 

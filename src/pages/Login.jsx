@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import "../Css/Login.css";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import { useAuth } from "../context/AuthContextProvider.jsx";
 import api from "../Apis";
+import Cookies from "js-cookie";
+import "../Css/Login.css"
 
 const Login = () => {
   const navigate = useNavigate();
+  const auth  = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,6 +19,7 @@ const Login = () => {
       if (response.status === 200) {
         Cookies.set("token", response.data.token);
         console.log("Token set in cookies:", response.data.token);
+        auth.login(response.data.user);
         navigate("/");
       }
     } catch (error) {
