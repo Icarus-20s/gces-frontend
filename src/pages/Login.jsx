@@ -22,7 +22,7 @@ const Login = () => {
         Cookies.set("token", token, { expires: 7 });
         console.log("Token set in cookies:", token);
         auth.login(response.data.user);
-        navigate("/");
+        navigate("/landingpage");
       }
     } catch (error) {
       setError("Login Failed. Please check your email and password.");

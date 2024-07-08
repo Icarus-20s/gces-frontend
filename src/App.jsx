@@ -13,6 +13,7 @@ import Staff from "./pages/Staff";
 import NoMatchRoute from "./components/NoMatchRoute";
 import AuthContextProvider from "./context/AuthContextProvider";
 import ProtectedRoutes from "./context/ProtectedRoutes";
+import LandingPage from "./pages/LandingPage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/logout" element={<Logout />} />
+          <Route path="/landingpage" element={<LandingPage />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/academics" element={<Academics />} />
           <Route path="/performance" element={<Performance />} />
