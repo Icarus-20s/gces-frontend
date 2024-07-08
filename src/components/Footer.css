@@ -1,0 +1,124 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative; /* Ensure a positioning context for absolute elements */
+  }
+  
+  .header {
+    background-color: rgba(45, 44, 44, 0.8); /* Example header background with some transparency */
+    color: #fff;
+    padding: 20px;
+    position: relative; /* Ensure stacking context for child elements */
+    z-index: 2; /* Ensure header is above other content */
+  }
+  
+  .header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .hero {
+    background-image: url('../assets/gces.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    position: relative; /* Ensure relative positioning for child elements */
+    z-index: 1; /* Ensure hero section is below header and above footer */
+  }
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4EA685;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #57B894;
+  }
+  
+  .section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .section-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .features-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .testimonial {
+    margin-bottom: 30px;
+  }
+  
+  .footer {
+    background-color: #333; /* Example footer background with some transparency */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2; /* Ensure footer is above hero section */
+  }
+  
+  .footer nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .footer nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .header nav ul li {
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    .footer nav ul li {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+  
