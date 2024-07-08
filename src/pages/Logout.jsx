@@ -1,13 +1,17 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContextProvider";
 
 const Logout = () => {
-    const navigate = useNavigate()
-  return (
-<button className="log-out" onClick={()=>{
-navigate('/Login')
-}}>logout</button>
-)
-}
+  const navigate = useNavigate();
+  const auth = useAuth();
 
-export default Logout
+  useEffect(() => {
+    auth.logout();
+    navigate("/login");
+  }, [auth, navigate]);
+
+  return null;
+};
+
+export default Logout;

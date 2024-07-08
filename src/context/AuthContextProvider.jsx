@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-
+import Cookies from 'js-cookie'
 const AuthContext = React.createContext(null);
 
 const AuthContextProvider = ({ children }) => {
@@ -12,6 +12,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const logout = () => {
+    Cookies.remove('token')
     setIsAuthenticated(false);
     setUser(null);
   };

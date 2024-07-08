@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContextProvider.jsx";
-import api from "../Apis";
 import Cookies from "js-cookie";
-import "../Css/Login.css"
+import api from "../Apis/index.jsx";
+import "../Css/Login.css";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
-  const auth  = useAuth();
+  const auth = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,8 +18,9 @@ const Login = () => {
     try {
       const response = await api.post("/login/", { email, password });
       if (response.status === 200) {
-        Cookies.set("token", response.data.token);
-        console.log("Token set in cookies:", response.data.token);
+        const token = response.data.token;
+        Cookies.set("token", token, { expires: 7 });
+        console.log("Token set in cookies:", token);
         auth.login(response.data.user);
         navigate("/");
       }
