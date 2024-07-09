@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.9); /* Transparent black background */
   color: #fff;
-  padding: 10px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a modern sans-serif font */
+  padding: 8px 20px; /* Decreased padding for a shorter height */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+  backdrop-filter: blur(10px); /* Apply backdrop filter for additional transparency */
 }
 
 .nav-bar a {
@@ -34,7 +35,7 @@
 }
 
 .logo-img {
-  width: 50px; /* Adjust size as needed */
+  width: 40px; /* Adjust size as needed */
   height: auto; /* Maintain aspect ratio */
   background-color: #f2f2f2; /* Light white background */
   padding: 5px; /* Padding for spacing around the logo */

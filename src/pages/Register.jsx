@@ -122,6 +122,9 @@ const Register = () => {
           Register
         </button>
       </form>
+      <button className="home-screen" onClick={()=>{
+        navigate('/')
+      }}>Go Back To Home Screen</button>
     </div>
   );
 };

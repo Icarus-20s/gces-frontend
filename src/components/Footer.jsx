@@ -12,8 +12,7 @@ const Footer = () => {
       <nav>
         <ul>
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/features">Features</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/contact">Contact us</Link></li>
         </ul>
       </nav>
       <p>&copy; GCES App. All rights reserved.</p>

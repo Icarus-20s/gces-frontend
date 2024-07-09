@@ -4,7 +4,6 @@ import { useAuth } from "../context/AuthContextProvider.jsx";
 import Cookies from "js-cookie";
 import api from "../Apis/index.jsx";
 import "../Css/Login.css";
-import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -60,6 +59,9 @@ const Login = () => {
           </button>
         </div>
       </form>
+      <button className="home-screen" onClick={()=>{
+        navigate('/')
+      }}>Go Back To Home Screen</button>
     </div>
   );
 };

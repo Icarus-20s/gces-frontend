@@ -1,0 +1,47 @@
+/* src/pages/about.css */
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .about-us section {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us h2 {
+    font-size: 2rem;
+    color: #4EA685;
+    margin-bottom: 20px;
+  }
+  
+  .about-us p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .about-us {
+      padding: 20px 10px;
+    }
+  
+    .about-us h2 {
+      font-size: 1.5rem;
+    }
+  
+    .about-us p {
+      font-size: 0.9rem;
+    }
+  }
+  

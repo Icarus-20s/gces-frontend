@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css"
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -16,17 +17,17 @@ import ProtectedRoutes from "./context/ProtectedRoutes";
 import LandingPage from "./pages/LandingPage";
 import Footer from "./components/Footer";
 import ContactUs from "./pages/ContactUs";
-import About from "./pages/About";
-import Features from "./pages/Features";
+import About from "./pages/About/About.jsx";
+import TransitionWrapper from "./transitionWrapper/TransitionWrapper.jsx";
 const App = () => {
   return (
     <AuthContextProvider>
       <Navbar />
+      <TransitionWrapper >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/features" element={<Features />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoutes />}>
@@ -40,6 +41,7 @@ const App = () => {
         </Route>
         <Route path="*" element={<NoMatchRoute />} />
       </Routes>
+      </TransitionWrapper>
       <Footer />
     </AuthContextProvider>
   );
