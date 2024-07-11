@@ -10,7 +10,7 @@
   
   .testimonials-section h2 {
     font-size: 2.5rem;
-    color: #4EA685;
+    color: #221214;
     margin-bottom: 40px;
     text-align: center;
     text-transform: uppercase;
@@ -48,7 +48,7 @@
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 3px solid #4EA685;
+    border: 3px solid #a64e63;
     margin-bottom: 10px;
   }
   
