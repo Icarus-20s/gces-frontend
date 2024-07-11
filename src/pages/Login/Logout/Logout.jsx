@@ -7,9 +7,8 @@ const Logout = () => {
   const auth = useAuth();
 
   useEffect(() => {
-
     auth.logout();
-    navigate("/login");
+    navigate('/');
   }, [auth, navigate]);
 
   return null;
