@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContextProvider.jsx";
+import { useAuth } from "../../context/AuthContextProvider.jsx";
 import Cookies from "js-cookie";
-import api from "../Apis/index.jsx";
-import "../Css/Login.css";
+import api from "../../Apis/index.jsx";
+import "../Login/Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,11 +17,8 @@ const Login = () => {
     try {
       const response = await api.post("/login/", { email, password });
       if (response.status === 200) {
-        const token = response.data.token;
-        Cookies.set("token", token, { expires: 7 });
-        console.log("Token set in cookies:", token);
-        auth.login(response.data.user);
-        navigate("/landingpage");
+        auth.login(response.data.user,response.data.token,response.data.role);
+        navigate("/landingpage",{replace:true});
       }
     } catch (error) {
       setError("Login Failed. Please check your email and password.");

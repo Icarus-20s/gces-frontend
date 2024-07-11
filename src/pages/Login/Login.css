@@ -1,12 +1,11 @@
-/* Container styling */
-.form-controller {
+.login-container {
   width: 100%;
   max-width: 500px;
   margin: 50px auto;
   padding: 40px;
   border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   font-family: 'Poppins', sans-serif;
   position: relative;
   overflow: hidden;
@@ -16,40 +15,35 @@
   align-items: center;
 }
 
-/* Gradient effect */
-.form-controller:before {
+.login-container:before {
   content: "";
   position: absolute;
   top: -10px;
   left: -10px;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
-  background: linear-gradient(135deg, #60a8ef, #316b6b);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   z-index: -1;
   transition: transform 0.3s ease-out;
 }
 
-/* Container hover effect */
-.form-controller:hover {
+.login-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Form styling */
-.form-controller form {
+.login-form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Form group styling */
 .form-group {
   width: 100%;
 }
 
-/* Label styling */
 .form-group label {
   font-weight: 600;
   font-size: 16px;
@@ -58,9 +52,7 @@
   display: block;
 }
 
-/* Input and select styling */
-.form-group input,
-.form-group select {
+.form-group input {
   padding: 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -71,16 +63,19 @@
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Focus styling for inputs */
-.form-group input:focus,
-.form-group select:focus {
+.form-group input:focus {
   border-color: #4EA685;
   box-shadow: 0 0 10px rgba(78, 166, 133, 0.3);
   outline: none;
 }
 
-/* Submit button styling */
-.submit {
+.error-message {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.login-button {
   padding: 14px 20px;
   border: none;
   border-radius: 8px;
@@ -93,19 +88,18 @@
   width: 100%;
 }
 
-.submit:hover {
+.login-button:hover {
   background-color: #3b9471;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Go back to home screen button */
 .home-screen {
   margin-top: 20px;
   padding: 14px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #60a8ef;
+  background-color: #56a3f6;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -120,9 +114,8 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
-  .form-controller {
+  .login-container {
     padding: 30px;
     margin: 30px auto;
   }
@@ -131,13 +124,12 @@
     font-size: 14px;
   }
 
-  .form-group input,
-  .form-group select {
+  .form-group input {
     padding: 12px;
     font-size: 14px;
   }
 
-  .submit,
+  .login-button,
   .home-screen {
     padding: 12px 16px;
     font-size: 16px;

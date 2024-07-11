@@ -1,65 +1,59 @@
-/* Container styling */
-.login-container {
+.contact-us-container {
   width: 100%;
   max-width: 500px;
   margin: 50px auto;
   padding: 40px;
   border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   font-family: 'Poppins', sans-serif;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
-/* Gradient effect */
-.login-container:before {
+.contact-us-container:before {
   content: "";
   position: absolute;
   top: -10px;
   left: -10px;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
-  background: linear-gradient(135deg, #56a3f6, #247e7e);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   z-index: -1;
   transition: transform 0.3s ease-out;
 }
 
-/* Container hover effect */
-.login-container:hover {
+.contact-us-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Form styling */
-.login-form {
+.contact-form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
-/* Form group styling */
 .form-group {
   width: 100%;
 }
 
-/* Label styling */
 .form-group label {
-  font-weight: 600;
+  font-weight: bold;
   font-size: 16px;
   color: #333;
   margin-bottom: 8px;
   display: block;
+  text-align: left;
 }
 
-/* Input styling */
-.form-group input {
+.form-group input,
+.form-group textarea {
   padding: 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -70,22 +64,14 @@
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Focus styling for inputs */
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   border-color: #4EA685;
   box-shadow: 0 0 10px rgba(78, 166, 133, 0.3);
   outline: none;
 }
 
-/* Error message styling */
-.error-message {
-  color: #ff4d4f;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/* Login button styling */
-.login-button {
+.contact-button {
   padding: 14px 20px;
   border: none;
   border-radius: 8px;
@@ -98,52 +84,30 @@
   width: 100%;
 }
 
-.login-button:hover {
+.contact-button:hover {
   background-color: #3b9471;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Go back to home screen button */
-.home-screen {
-  margin-top: 20px;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #56a3f6;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  width: 100%;
-}
-
-.home-screen:hover {
-  background-color: #4a89c7;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive design */
 @media (max-width: 600px) {
-  .login-container {
-      padding: 30px;
-      margin: 30px auto;
+  .contact-us-container {
+    padding: 30px;
+    margin: 30px auto;
   }
 
   .form-group label {
-      font-size: 14px;
+    font-size: 14px;
   }
 
-  .form-group input {
-      padding: 12px;
-      font-size: 14px;
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    font-size: 14px;
   }
 
-  .login-button,
-  .home-screen {
-      padding: 12px 16px;
-      font-size: 16px;
+  .contact-button {
+    padding: 12px 16px;
+    font-size: 16px;
   }
 }

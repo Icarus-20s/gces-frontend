@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContextProvider.jsx';
-import logo from "../assets/logo.svg";
-import './Navbar.css'; // Import your CSS file for Navbar styles
+import { useAuth } from '../../context/AuthContextProvider.jsx';
+import logo from "../../assets/logo.svg";
+import '../Navbars/Navbar.css'; 
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth();

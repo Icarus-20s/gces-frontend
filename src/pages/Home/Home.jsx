@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../components/Navbar.css';
-import '../Css/Home.css';
+import '../../components/Navbars/Navbar.css';
+import './Home.css';
 import { useNavigate } from 'react-router-dom';
-import photo1 from '../assets/photo1.jpg';
-import photo2 from '../assets/photo2.jpg';
-import photo3 from '../assets/photo3.jpg';
-import photo4 from '../assets/photo4.jpg';
+import photo1 from '../../assets/photo1.jpg';
+import photo2 from '../../assets/photo2.jpg';
+import photo3 from '../../assets/photo3.jpg';
+import photo4 from '../../assets/photo4.jpg';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -30,6 +30,7 @@ const Home = () => {
             </div>
         </div>
     );
+
 }
 
 export default Home;

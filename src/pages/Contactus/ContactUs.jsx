@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import "../Css/contact.css";
-import api from "../Apis/index.jsx"
+import  "./contact.css";
+import api from "../../Apis/index.jsx"
+import { useNavigate } from "react-router-dom";
 const ContactUs = () => {
+  const navigate = useNavigate()
  const[email,setEmail] = useState('')
  const[name,setName] = useState('')
  const[message,setMessage] = useState('')
@@ -26,6 +28,11 @@ const ContactUs = () => {
         <h2>Thank You!</h2>
         <p>Your message has been sent successfully.</p>
       </div>
+      <button onClick={()=>{
+        navigate('/')
+      }}>
+        Go Back
+      </button>
     </div>
   );
 };
