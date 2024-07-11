@@ -1,33 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContextProvider.jsx';
 import logo from "../../assets/logo.svg";
-import '../Navbars/Navbar.css'; 
+import './Navbar.css';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <nav className='nav-bar'>
-      <Link to="/landingpage" className="logo-link">
+      <Link to="/landingpage" className="logo-link" onClick={closeMenu}>
         <img src={logo} alt="Logo" className="logo-img" />
       </Link>
-      <Link to="/performance">Performance</Link>
-      <Link to="/staff">Staff</Link>
-      <Link to="/notice">Notice</Link>
-      <Link to="/student">Student</Link>
-      <Link to="/academics">Academics</Link>
-      {isAuthenticated ? (
-        <>
-        <Link to='/logout'>Logout</Link>
-        <Link to='/profile'>Profile</Link>
-        </>
-      ) : (
-        <>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
-        </>
-      )}
+      <div className="menu-icon" onClick={toggleMenu}>
+        <MenuIcon />
+      </div>
+      <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+        <Link to="/performance" onClick={closeMenu}>Performance</Link>
+        <Link to="/staff" onClick={closeMenu}>Staff</Link>
+        <Link to="/notice" onClick={closeMenu}>Notice</Link>
+        <Link to="/student" onClick={closeMenu}>Student</Link>
+        <Link to="/academics" onClick={closeMenu}>Academics</Link>
+        {isAuthenticated ? (
+          <Link to='/profile' className="profile-link" onClick={closeMenu}>
+            <AccountCircleRoundedIcon />
+          </Link>
+        ) : (
+          <>
+            <Link to="/register" onClick={closeMenu}>Register</Link>
+            <Link to="/login" onClick={closeMenu}>Login</Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 };

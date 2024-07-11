@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import  "./contact.css";
 import api from "../../Apis/index.jsx"
 import { useNavigate } from "react-router-dom";
+import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
 const ContactUs = () => {
   const navigate = useNavigate()
  const[email,setEmail] = useState('')
@@ -31,7 +32,7 @@ const ContactUs = () => {
       <button onClick={()=>{
         navigate('/')
       }}>
-        Go Back
+        Go Back <KeyboardBackspaceRoundedIcon />
       </button>
     </div>
   );

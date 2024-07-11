@@ -1,20 +1,45 @@
+/* profile.css */
+
 .user-profile {
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .user-profile p {
   margin: 10px 0;
+  font-size: 1rem;
 }
 
 .user-profile p:first-child {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-top: 0;
+  color: #4EA685; /* Match the accent color */
 }
 
 .user-profile p:not(:first-child) {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  color: #333; /* Dark text color */
+}
+
+.user-profile button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4EA685;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: 20px;
+}
+
+.user-profile button:hover {
+  background-color: #3b9471;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }

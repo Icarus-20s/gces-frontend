@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../Apis/index';
-import "./profile.css"
+import "./profile.css";
+import { useAuth } from '../../context/AuthContextProvider';
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
+  const auth = useAuth();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -19,17 +21,18 @@ const Profile = () => {
   }, []);
 
   return (
-    <div>
+    <div className="user-profile">
       {userData ? (
-        <div className="user-profile">
-          <p>id: {userData.id}</p>
-          <p>first name: {userData.first_name}</p>
-          <p>last name: {userData.last_name}</p>
+        <>
+          <p>ID: {userData.id}</p>
+          <p>First Name: {userData.first_name}</p>
+          <p>Last Name: {userData.last_name}</p>
           <p>Username: {userData.username}</p>
           <p>Email: {userData.email}</p>
           <p>Role: {userData.role}</p>
           <p>Branch: {userData.branch}</p>
-        </div>
+          <button onClick={auth.logout}>Logout</button>
+        </>
       ) : (
         <p>Loading...</p>
       )}

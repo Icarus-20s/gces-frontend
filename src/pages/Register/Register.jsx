@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../../pages/Register/Register.css";
 import { useNavigate } from "react-router-dom";
+import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -124,7 +125,7 @@ const Register = () => {
       </form>
       <button className="home-screen" onClick={()=>{
         navigate('/')
-      }}>Go Back To Home Screen</button>
+      }}>Go Back To Home Screen <KeyboardBackspaceRoundedIcon /></button>
     </div>
   );
 };

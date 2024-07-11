@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import '../../components/Navbars/Navbar.css';
-import './Home.css';
 import { useNavigate } from 'react-router-dom';
 import photo1 from '../../assets/photo1.jpg';
 import photo2 from '../../assets/photo2.jpg';
 import photo3 from '../../assets/photo3.jpg';
 import photo4 from '../../assets/photo4.jpg';
+import './Home.css'; 
 
 const Home = () => {
     const navigate = useNavigate();
@@ -22,7 +21,7 @@ const Home = () => {
     return (
         <div className="home" style={{ backgroundImage: `url(${photos[currentPhotoIndex]})` }}>
             <div className="home-content">
-                <h1>Welcome to GCES     App</h1>
+                <h1>Welcome to GCES App</h1>
                 <div className="button-container">
                     <button className="authen" onClick={() => navigate('register')}>Register</button>
                     <button className="authen" onClick={() => navigate('login')}>Login</button>

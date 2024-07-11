@@ -77,7 +77,8 @@
   margin-bottom: 10px;
 }
 
-.register-button {
+.register-button,
+.home-screen {
   padding: 14px 20px;
   border: none;
   border-radius: 8px;
@@ -90,7 +91,8 @@
   width: 100%;
 }
 
-.register-button:hover {
+.register-button:hover,
+.home-screen:hover {
   background-color: #3b9471;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -98,22 +100,8 @@
 
 .home-screen {
   margin-top: 20px;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 8px;
   background-color: #56a3f6;
-  color: #fff;
   font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  width: 100%;
-}
-
-.home-screen:hover {
-  background-color: #4a89c7;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 600px) {

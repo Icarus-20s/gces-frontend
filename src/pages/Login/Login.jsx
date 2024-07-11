@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider.jsx";
-import Cookies from "js-cookie";
 import api from "../../Apis/index.jsx";
 import "../Login/Login.css";
+import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ const Login = () => {
       </form>
       <button className="home-screen" onClick={()=>{
         navigate('/')
-      }}>Go Back To Home Screen</button>
+      }}>Go Back To Home Screen<KeyboardBackspaceRoundedIcon /></button>
     </div>
   );
 };
