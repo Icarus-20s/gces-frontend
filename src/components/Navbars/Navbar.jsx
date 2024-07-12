@@ -7,7 +7,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated ,role} = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -27,6 +27,9 @@ const Navbar = () => {
         <MenuIcon />
       </div>
       <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+        {
+
+        }
         <Link to="/performance" onClick={closeMenu}>Performance</Link>
         <Link to="/staff" onClick={closeMenu}>Staff</Link>
         <Link to="/notice" onClick={closeMenu}>Notice</Link>

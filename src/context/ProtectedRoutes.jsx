@@ -8,7 +8,11 @@ const ProtectedRoutes = () => {
   const auth = useAuth()
   return (
     auth.Loading ? Loader:
-    auth.isAuthenticated ? <Outlet /> : <Navigate to="/login" state={{path:location.pathname}}/>
+    auth.isAuthenticated ? 
+    (
+      <Outlet /> 
+         )
+  : <Navigate to="/login" state={{path:location.pathname}}/>
   );
 };
 

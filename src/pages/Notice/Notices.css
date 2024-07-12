@@ -1,0 +1,67 @@
+/* Notices.css */
+
+.notice-container {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notice-container h2 {
+    font-size: 2.5rem;
+    color: #221214;
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .notice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .notice-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .notice-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .notice-item p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .notice-container {
+      padding: 20px;
+    }
+  
+    .notice-container h2 {
+      font-size: 2rem;
+    }
+  
+    .notice-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .notice-item {
+      padding: 15px;
+    }
+  
+    .notice-item p {
+      font-size: 0.8rem;
+    }
+  }
+  

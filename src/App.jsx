@@ -20,6 +20,7 @@ import ContactUs from "./pages/Contactus/ContactUs.jsx";
 import About from "./pages/About/About.jsx";
 import TransitionWrapper from "./transitionWrapper/TransitionWrapper.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
+import Teacher from "./pages/Teacher/Teacher.jsx";
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route element={<ProtectedRoutes />}>
-          <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/landingpage" element={<LandingPage />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/notice" element={<Notice />} />
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/performance" element={<Performance />} />
             <Route path="/student" element={<Student />} />
             <Route path="/staff" element={<Staff />} />
+            <Route path="/teacher" element={<Teacher />} />
           </Route>
           <Route path="*" element={<NoMatchRoute />} />
         </Routes>
