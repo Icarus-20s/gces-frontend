@@ -21,6 +21,7 @@ import About from "./pages/About/About.jsx";
 import TransitionWrapper from "./transitionWrapper/TransitionWrapper.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Teacher from "./pages/Teacher/Teacher.jsx";
+import Assignment from "./pages/Assignments/Assignment.jsx";
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/academics" element={<Academics />} />
             <Route path="/performance" element={<Performance />} />
             <Route path="/student" element={<Student />} />
+            <Route path="/assignment" element={<Assignment />} />
             <Route path="/staff" element={<Staff />} />
             <Route path="/teacher" element={<Teacher />} />
           </Route>
