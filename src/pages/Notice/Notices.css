@@ -24,6 +24,7 @@
 }
 
 .notice-item {
+  position: relative;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -43,6 +44,27 @@
   color: #555;
 }
 
+.notice-item .icon-buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.notice-item .icon-buttons svg {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.notice-item .icon-buttons svg:hover {
+  color: #4ea685; /* Updated color on hover */
+}
+
 .add-notice-form {
   background-color: #ffffff;
   padding: 30px;
@@ -52,13 +74,13 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center; /* Center align content */
 }
 
 .add-notice-form h2 {
   font-size: 2rem;
   color: #221214;
   margin-bottom: 20px;
-  text-align: center;
 }
 
 .add-notice-form form {
@@ -89,59 +111,116 @@
 
 .add-notice-form button[type="submit"],
 .add-notice-form button[type="button"] {
-  width: 100%;
+  width: 100%; /* Full width on small screens */
   padding: 12px;
-  background-color: #4ea685; /* Updated button color */
+  background-color: #394742; /* Updated button color */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.add-notice-form button[type="submit"]:hover,
+.add-notice-form button[type="button"]:hover {
+  background-color: #57b894; /* Darker shade on hover */
+}
+
+.error-message {
+  color: #ff6347;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Button styles for adding notice */
+.button-to-add-notice {
+  display: block;
+  width: 200px; /* Set fixed width or adjust as needed */
+  margin: 0 auto; /* Center horizontally */
+  padding: 12px;
+  background-color: #2d3834; /* Primary button color */
+  color: #fff; /* Text color */
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.button-to-add-notice:hover {
+  background-color: #57b894; /* Darker shade on hover */
+}
+
+.button-to-add-notice:active {
+  transform: translateY(1px); /* Add a slight press effect */
+}
+
+@media screen and (max-width: 768px) {
+  .add-notice-form {
+    padding: 20px;
+  }
+
+  .add-notice-form button[type="submit"],
+  .add-notice-form button[type="button"] {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .button-to-add-notice {
+    width: 100%; /
+  }
+}
+
+
+/* Ater Submission css */
+
+.submitted-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+}
+
+.thank-message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.thank-message h2 {
+  font-size: 2.5rem;
+  color: #221214;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.submitted-container button {
+  padding: 12px 24px;
+  background-color: #4ea685;
   color: #fff;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
 }
 
-.add-notice-form button[type="submit"]:hover,
-.add-notice-form button[type="button"]:hover {
-  background-color: #57b894; /* Darker shade for hover */
+.submitted-container button:hover {
+  background-color: #57b894; /* Darker shade on hover */
 }
 
-.success-message {
-  color: green;
-  font-weight: bold;
-  margin-top: 10px;
+.submitted-container button svg {
+  vertical-align: middle;
+  margin-left: 5px;
 }
 
 @media screen and (max-width: 768px) {
-  .notice-container {
-    padding: 20px;
-  }
-
-  .notice-container h2 {
+  .thank-message h2 {
     font-size: 2rem;
-  }
-
-  .notice-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .notice-item {
-    padding: 15px;
-  }
-
-  .notice-item p {
-    font-size: 0.8rem;
-  }
-
-  .add-notice-form {
-    padding: 20px;
-  }
-
-  .add-notice-form h2 {
-    font-size: 1.5rem;
-  }
-
-  .add-notice-form button[type="submit"],
-  .add-notice-form button[type="button"] {
-    font-size: 0.9rem;
   }
 }

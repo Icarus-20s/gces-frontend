@@ -7,7 +7,7 @@ const ProtectedRoutes = () => {
   const location = useLocation()
   const auth = useAuth()
   return (
-    auth.Loading ? Loader:
+    auth.Loading ? <Loader />:
     auth.isAuthenticated ? 
     (
       <Outlet /> 

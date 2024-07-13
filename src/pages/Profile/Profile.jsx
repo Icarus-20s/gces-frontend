@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../../Apis/index';
 import "./profile.css";
 import { useAuth } from '../../context/AuthContextProvider';
+import Loader from '../../components/Loader/Loader';
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
@@ -34,7 +35,7 @@ const Profile = () => {
           <button onClick={auth.logout}>Logout</button>
         </>
       ) : (
-        <p>Loading...</p>
+        <Loader />
       )}
     </div>
   );
