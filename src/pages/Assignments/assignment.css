@@ -1,4 +1,4 @@
-/* Assignments.css */
+/* assignment.css */
 
 .assignment-container {
     background-color: #f9f9f9;
@@ -121,6 +121,23 @@
     font-size: 0.9rem;
     text-align: center;
     margin-top: 10px;
+  }
+  
+  .show-add-assignment {
+    background-color: #4ea685;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 20px auto;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .show-add-assignment:hover {
+    background-color: #57b894;
   }
   
   /* Media Queries for Responsive Design */

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../Apis/index.jsx";
 import Loader from "../../components/Loader/Loader.jsx";
 import "./assignment.css";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const Assignment = () => {
   const [data, setData] = useState({
@@ -10,9 +11,10 @@ const Assignment = () => {
     description: "",
     deadline: "",
   });
-
+  const [showAddAssignment, setShowAddAssignment] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [fetchedData, setFetchedData] = useState([]);
+  const  auth  = useAuth();
 
   const onChangeHandler = (e) => {
     setData({
@@ -62,60 +64,75 @@ const Assignment = () => {
   }, []);
 
   return (
-    <div className="assignment-container">
-      <h1>Assignments</h1>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="assignment-list">
-          {fetchedData.map((data) => (
-            <div key={data.id} className="assignment-item">
-              <p>
-                Assignment: <a href={data.file_assignment}>{data.file_assignment}</a>
-              </p>
-              <p>Title: {data.title}</p>
-              <p>Deadline: {data.deadline}</p>
-              <p>Description: {data.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
+    <>
+      <div className="assignment-container">
+        <h1>Assignments</h1>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="assignment-list">
+            {fetchedData.map((data) => (
+              <div key={data.id} className="assignment-item">
+                <p>
+                  Assignment:{" "}
+                  <a href={data.file_assignment}>{data.file_assignment}</a>
+                </p>
+                <p>Title: {data.title}</p>
+                <p>Deadline: {data.deadline}</p>
+                <p>Description: {data.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {auth.role === "teacher" && !showAddAssignment && (
+          <button
+            className="show-add-assignment"
+            onClick={() => {
+              setShowAddAssignment(true);
+            }}
+          >
+            Assign Assignment
+          </button>
+        )}
 
-      <div className="add-assignment-form">
-        <h2>Submit Assignment</h2>
-        <form onSubmit={onSubmitHandler}>
-          <input
-            type="text"
-            name="title"
-            value={data.title}
-            onChange={onChangeHandler}
-            placeholder="Title"
-            required
-          />
-          <input
-            type="file"
-            name="file_assignment"
-            onChange={onFileChangeHandler}
-            required
-          />
-          <textarea
-            name="description"
-            value={data.description}
-            onChange={onChangeHandler}
-            placeholder="Description"
-            required
-          />
-          <input
-            type="date"
-            name="deadline"
-            value={data.deadline}
-            onChange={onChangeHandler}
-            required
-          />
-          <button type="submit">Submit</button>
-        </form>
+        {showAddAssignment && (
+          <div className="add-assignment-form">
+            <h2>Submit Assignment</h2>
+            <form onSubmit={onSubmitHandler} encType="multipart/form-data">
+              <input
+                type="text"
+                name="title"
+                value={data.title}
+                onChange={onChangeHandler}
+                placeholder="Title"
+                required
+              />
+              <input
+                type="file"
+                name="file_assignment"
+                onChange={onFileChangeHandler}
+                required
+              />
+              <textarea
+                name="description"
+                value={data.description}
+                onChange={onChangeHandler}
+                placeholder="Description"
+                required
+              />
+              <input
+                type="date"
+                name="deadline"
+                value={data.deadline}
+                onChange={onChangeHandler}
+                required
+              />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        )}
       </div>
-    </div>
+    </>
   );
 };
 
