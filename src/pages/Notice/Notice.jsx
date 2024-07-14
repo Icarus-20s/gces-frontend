@@ -5,7 +5,7 @@ import './Notices.css';
 import { MdOutlineAddCircle } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
-import Loader from '../../components/Loader/Loader'; // Assuming Loader component exists
+import Loader from '../../components/Loader/Loader';
 import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
 import { MdTipsAndUpdates, MdSystemUpdateAlt } from "react-icons/md";
 
