@@ -1,34 +1,35 @@
 /* Assignment.css */
 
-/* Global Styles */
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #f4f4f9;
+.assignment-container {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.page-title {
+.assignment-container h1 {
+  font-size: 2.5rem;
+  color: #221214;
+  margin-bottom: 40px;
   text-align: center;
-  color: #4EA685;
-  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.assignment-container h1::after {
+  content: '';
+  width: 50px;
+  height: 4px;
+  background-color: #57b894;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Assignment List */
 .assignment-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -36,29 +37,32 @@ body {
 }
 
 .assignment-item {
-  background: #ffffff;
+  position: relative;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .assignment-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .assignment-item p {
-  margin: 10px 0;
-  color: #333;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 .assignment-item a {
-  display: inline-block;
+  display: block;
   margin-top: 10px;
-  color: #57B894;
+  color: #4ea685;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 1rem;
 }
 
 .assignment-item a:hover {
@@ -66,127 +70,179 @@ body {
 }
 
 .assignment-item button {
-  display: inline-block;
   margin-top: 10px;
-  background: #DB4437;
-  color: white;
-  border: none;
   padding: 10px 20px;
-  border-radius: 4px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.assignment-item button + button {
+.assignment-item button.update {
+  background-color: #4ea685;
+}
+
+.assignment-item button.delete {
+  background-color: #db4437;
   margin-left: 10px;
-  background: #4EA685;
 }
 
 .assignment-item button:hover {
-  background: #C23321;
+  opacity: 0.9;
 }
 
-.assignment-item button + button:hover {
-  background: #3e9471;
-}
-
-/* Add Assignment Form */
-.add-assignment-form {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
-.add-assignment-form h2 {
-  margin-bottom: 20px;
-  color: #4EA685;
-}
-
-.add-assignment-form input,
-.add-assignment-form textarea,
-.add-assignment-form button {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.add-assignment-form input[type="file"] {
-  padding: 5px;
-}
-
-.add-assignment-form button {
-  background: #4EA685;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.add-assignment-form button:hover {
-  background: #3e9471;
-}
-
-/* Show Add Assignment Button */
 .show-add-assignment {
-  background: #4EA685;
-  color: white;
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #2d3834;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .show-add-assignment:hover {
-  background: #3e9471;
+  background-color: #57b894;
 }
 
-/* Submitted Container */
+.show-add-assignment:active {
+  transform: translateY(1px);
+}
+
+.add-assignment-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.add-assignment-form h2 {
+  font-size: 2rem;
+  color: #221214;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.add-assignment-form h2::after {
+  content: '';
+  width: 40px;
+  height: 3px;
+  background-color: #57b894;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.add-assignment-form form {
+  display: grid;
+  gap: 20px;
+}
+
+.add-assignment-form input[type="text"],
+.add-assignment-form input[type="file"],
+.add-assignment-form textarea,
+.add-assignment-form input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.add-assignment-form input[type="text"]:focus,
+.add-assignment-form input[type="file"]:focus,
+.add-assignment-form textarea:focus,
+.add-assignment-form input[type="date"]:focus {
+  outline: none;
+  border-color: #57b894;
+}
+
+.add-assignment-form textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+.add-assignment-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #394742;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+}
+
+.add-assignment-form button[type="submit"]:hover {
+  background-color: #57b894;
+}
+
+.error-message {
+  color: #ff6347;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .submitted-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  text-align: center;
 }
 
-.thank-message h2 {
-  color: #4EA685;
+.thank-message {
+  text-align: center;
   margin-bottom: 20px;
 }
 
+.thank-message h2 {
+  font-size: 2.5rem;
+  color: #221214;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
 .submitted-container button {
-  background: #4EA685;
-  color: white;
+  padding: 12px 24px;
+  background-color: #4ea685;
+  color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
 }
 
 .submitted-container button:hover {
-  background: #3e9471;
+  background-color: #57b894;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
+.submitted-container button svg {
+  vertical-align: middle;
+  margin-left: 5px;
+}
 
-  .add-assignment-form {
-    padding: 10px;
-  }
-
-  .assignment-item {
-    padding: 15px;
+@media screen and (max-width: 768px) {
+  .thank-message h2 {
+    font-size: 2rem;
   }
 }
