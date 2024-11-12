@@ -39,13 +39,16 @@ const Navbar = () => {
         <Link to="/notice" onClick={closeMenu}>
           Notice
         </Link>
+        <Link to="/attendance" onClick={closeMenu}>
+          Attendance
+        </Link>
         {(role === "teacher" || role === "staff") && (
           <Link to="/student" onClick={closeMenu}>
             Student
           </Link>
         )}
-        <Link to="/academics" onClick={closeMenu}>
-          Academics
+        <Link to="/notes" onClick={closeMenu}>
+          Notes
         </Link>
        {
         (role==="student" || role ==="teacher")&&(

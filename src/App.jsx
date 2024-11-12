@@ -6,7 +6,6 @@ import Home from "./pages/Home/Home";
 import Notice from "./pages/Notice/Notice.jsx";
 import Performance from "./pages/Performance/Performance.jsx";
 import Student from "./pages/Students/Student.jsx/";
-import Academics from "./pages/Academics/Academics.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
 import Logout from "./pages/Login/Logout/Logout.jsx";
@@ -22,6 +21,8 @@ import TransitionWrapper from "./transitionWrapper/TransitionWrapper.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Teacher from "./pages/Teacher/Teacher.jsx";
 import Assignment from "./pages/Assignments/Assignment.jsx";
+import Notes from "./pages/Notes/Notes.jsx";
+import Attendance from "./pages/Attendance/Attendance.jsx";
 
 const App = () => {
   return (
@@ -35,11 +36,12 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route element={<ProtectedRoutes />}>
+          <Route path="/attendance" element={<Attendance />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/landingpage" element={<LandingPage />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/notice" element={<Notice />} />
-            <Route path="/academics" element={<Academics />} />
+            <Route path="/notes" element={<Notes />} />
             <Route path="/performance" element={<Performance />} />
             <Route path="/student" element={<Student />} />
             <Route path="/assignment" element={<Assignment />} />

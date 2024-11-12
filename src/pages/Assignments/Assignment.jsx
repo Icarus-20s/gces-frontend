@@ -4,12 +4,12 @@ import Loader from "../../components/Loader/Loader.jsx";
 import "./assignment.css";
 import { useAuth } from "../../context/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
-import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
+import SubmitAssignment from "../SubmitAssignment/SubmitAssignment.jsx";
 
 const Assignment = () => {
   const navigate = useNavigate();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // New state for handling submission loading
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [data, setData] = useState({
     title: "",
     file_assignment: null,
@@ -20,7 +20,8 @@ const Assignment = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [fetchedData, setFetchedData] = useState([]);
   const [currentAssignmentId, setCurrentAssignmentId] = useState(null);
-  const { role } = useAuth();
+  const [showSubmitPopup, setShowSubmitPopup] = useState(false);
+  const { role, user } = useAuth();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -32,7 +33,7 @@ const Assignment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set submitting state to true
+    setIsSubmitting(true); 
     const formData = new FormData();
     Object.keys(data).forEach((key) => formData.append(key, data[key]));
 
@@ -51,14 +52,35 @@ const Assignment = () => {
         });
       }
       resetForm();
-      await fetchAssignments(); // Re-fetch assignments after submitting
+      await fetchAssignments();
     } catch (error) {
       console.error(
         "Error submitting assignment:",
         error.response?.data || error.message
       );
     } finally {
-      setIsSubmitting(false); // Set submitting state to false after request is complete
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleAssignmentSubmission = async (textSubmission, fileSubmission) => {
+    const formData = new FormData();
+    formData.append('text_submission', textSubmission);
+    if (fileSubmission) {
+      formData.append('file_submission', fileSubmission);
+    }
+    formData.append('student', user.id);
+    formData.append('assignment', currentAssignmentId);
+
+    try {
+      await api.post("/assignment-submission/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      setShowSubmitPopup(false);
+    } catch (error) {
+      console.error("Error submitting assignment:", error.response?.data || error.message);
     }
   };
 
@@ -103,7 +125,7 @@ const Assignment = () => {
   };
 
   const handleDelete = async (id) => {
-    setIsLoading(true); // Show loader while deleting
+    setIsLoading(true); 
     try {
       await api.delete(`/assignment/${id}`);
       setFetchedData((prevData) =>
@@ -112,7 +134,7 @@ const Assignment = () => {
     } catch (error) {
       console.error("Error deleting assignment:", error.message);
     } finally {
-      setIsLoading(false); // Hide loader after deletion
+      setIsLoading(false);
     }
   };
 
@@ -137,6 +159,25 @@ const Assignment = () => {
                   Start Doing Assignment
                 </a>
               )}
+              {
+                role==="student"&&(
+                  <>
+                  <button
+                onClick={() => {
+                  setCurrentAssignmentId(assignment.id);
+                  setShowSubmitPopup(true);
+                }}
+              >
+                Submit Assignment
+              </button>
+                  </>
+                )
+              }
+              <SubmitAssignment
+                isOpen={showSubmitPopup}
+                onClose={() => setShowSubmitPopup(false)}
+                onSubmit={handleAssignmentSubmission}
+              />
               {role === "teacher" && (
                 <>
                   <button
@@ -203,7 +244,7 @@ const Assignment = () => {
               {currentAssignmentId ? "Update" : "Submit"}
             </button>
           </form>
-          {isSubmitting && <Loader />} {/* Show loader while submitting */}
+          {isSubmitting && <Loader />}
         </div>
       )}
     </div>

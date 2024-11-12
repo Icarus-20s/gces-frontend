@@ -6,6 +6,7 @@ import Loader from '../../components/Loader/Loader';
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
+  const [updateData ,setUpdateData]  =useState()
   const auth = useAuth();
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const Profile = () => {
     };
     fetchUserData();
   }, []);
+
 
   return (
     <div className="user-profile">
